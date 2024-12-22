@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sign_language_msg_app/screens/login_screen.dart';
 import 'package:sign_language_msg_app/screens/registration_screen.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:sign_language_msg_app/components/rounded_button.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -33,7 +34,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
 
     controller.addListener(() {
       setState(() {});
-      print(controller.value);
     });
   }
 
@@ -69,51 +69,20 @@ class _WelcomeScreenState extends State<WelcomeScreen>
             SizedBox(
               height: 48.0,
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Hero(
-                tag: 'loginButton',
-                child: Material(
-                  elevation: 5.0,
-                  color: Colors.lightBlueAccent,
-                  borderRadius: BorderRadius.circular(30.0),
-                  child: MaterialButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, LoginScreen.id);
-                    },
-                    minWidth: 200.0,
-                    height: 42.0,
-                    child: Text(
-                      'Log In',
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.0),
-              child: Hero(
-                tag: 'registrationButton',
-                child: Material(
-                  color: Colors.blueAccent,
-                  borderRadius: BorderRadius.circular(30.0),
-                  elevation: 5.0,
-                  child: MaterialButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, RegistrationScreen.id);
-                    },
-                    minWidth: 200.0,
-                    height: 42.0,
-                    child: Text(
-                      'Register',
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            RoundedButton(text: "LogIn", onpressed: (){
+              Navigator.pushNamed(context, LoginScreen.id);
+            }, tag: 'login' , color: Colors.lightBlueAccent,),
+
+            RoundedButton(text: "Register", onpressed: (){
+              Navigator.pushNamed(context, RegistrationScreen.id);
+            }, tag: 'registerButton', color: Colors.blueAccent,)
           ],
         ),
       ),
+
+
     );
   }
 }
+
+
