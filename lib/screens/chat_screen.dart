@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:sign_language_msg_app/constants.dart';
 
-
 class ChatScreen extends StatefulWidget {
+  const ChatScreen({super.key});
+
+  static String id = "WelcomeScreen";
+
   @override
-  _ChatScreenState createState() => _ChatScreenState();
+  State<ChatScreen> createState() => _ChatScreenState();
 }
 
 class _ChatScreenState extends State<ChatScreen> {
